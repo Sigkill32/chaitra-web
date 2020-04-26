@@ -5,6 +5,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core";
 import ItemCard from "./itemCard";
+import { db } from "../firebaseConfig";
 
 const styles = {
   root: {
@@ -20,6 +21,7 @@ const styles = {
 class Illustration extends Component {
   state = {
     posts: [],
+    timer: null,
   };
 
   componentDidMount() {
@@ -29,11 +31,24 @@ class Illustration extends Component {
   getDownloadUrl = async () => {
     try {
       let posts = [];
+      let postsData = [];
+      const querySnapshot = await db.collection("posts").get();
+      querySnapshot.forEach((doc) => {
+        postsData.push(doc.data());
+      });
       const storageRef = storage.ref("Posts/");
+      let localLikes = null;
+      if (localStorage.getItem("likes")) {
+        localLikes = JSON.parse(localStorage.getItem("likes"));
+      }
       for (let i = 0; i < 7; i++) {
-        const file = `Post${i}.png`;
-        const url = await storageRef.child(file).getDownloadURL();
-        posts.push({ post: url, id: i, isLiked: false });
+        const url = await storageRef.child(`Post${i}.png`).getDownloadURL();
+        posts.push({
+          post: url,
+          id: i,
+          isLiked: localLikes !== null ? localLikes[i] : false,
+          likes: postsData[i].likes,
+        });
       }
       this.setState({ posts });
     } catch (error) {
@@ -41,10 +56,30 @@ class Illustration extends Component {
     }
   };
 
+  debouncedUpdate = (likeCount, id) => {
+    const { timer } = this.state;
+    clearInterval(timer);
+    const newTimer = setTimeout(this.updateLikes, 500, likeCount, id);
+    this.setState({ timer: newTimer });
+  };
+
+  updateLikes = (likeCount, id) => {
+    db.collection("posts").doc(`post${id}`).set({ likes: likeCount });
+  };
+
   handleLike = (id) => {
     const { posts } = this.state;
     posts[id].isLiked = !posts[id].isLiked;
+    if (posts[id].isLiked) {
+      this.debouncedUpdate(posts[id].likes + 1, id);
+      posts[id].likes += 1;
+    } else {
+      this.debouncedUpdate(posts[id].likes - 1, id);
+      posts[id].likes -= 1;
+    }
     this.setState({ posts });
+    const localLikes = posts.map((post) => post.isLiked);
+    localStorage.setItem("likes", JSON.stringify(localLikes));
   };
 
   render() {
@@ -74,6 +109,7 @@ class Illustration extends Component {
                     id={post.id}
                     key={post.id}
                     isLiked={post.isLiked}
+                    likes={post.likes}
                   />
                 ))}
               </Grid>

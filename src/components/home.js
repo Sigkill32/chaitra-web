@@ -15,7 +15,7 @@ class Home extends Component {
   state = {};
   render() {
     return (
-      <div className>
+      <div>
         <NavBar />
         <h1>Home</h1>
       </div>

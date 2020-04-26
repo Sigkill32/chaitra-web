@@ -15,6 +15,7 @@ const ItemCard = ({
   id,
   onHandleLike,
   isLiked,
+  likes,
 }) => {
   return (
     <Card
@@ -47,6 +48,12 @@ const ItemCard = ({
             style={{ color: isLiked ? "red" : "rgba(0, 0, 0, 0.54)" }}
           />
         </IconButton>
+        <Typography
+          variant="caption"
+          style={{ color: isLiked ? "red" : "rgba(0, 0, 0, 0.54)" }}
+        >
+          {likes}
+        </Typography>
       </CardActions>
     </Card>
   );
