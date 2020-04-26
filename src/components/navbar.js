@@ -7,9 +7,6 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
 
 const styles = {
-  root: {
-    flex: 1,
-  },
   anchorStyle: {
     textDecoration: "none",
     color: "white",
@@ -24,7 +21,7 @@ const NavBar = ({ classes }) => {
     <div>
       <AppBar position="static">
         <Toolbar>
-          <Grid container>
+          <Grid container justify="flex-end">
             <Typography>
               <Link to="/home" className={classes.anchorStyle}>
                 HOME
