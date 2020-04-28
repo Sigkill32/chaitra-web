@@ -31,13 +31,13 @@ body {
   padding: 10px;
   padding-top: 50px;
   justify-content: flex-end;
-}
-.nav-links a {
-  text-decoration: none;
-  margin-right: 20px;
-  font-weight: bold;
-  color: black;
-  outline: none;
+  a {
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+    color: black;
+    outline: none;
+  }
 }
 
 .intro-container {
@@ -49,11 +49,11 @@ body {
 
 .intro-text {
   width: 65%;
-}
-.intro-text h1 {
-  line-height: 1.5em;
-  letter-spacing: 0.5px;
-  font-size: 2.6em;
+  h1 {
+    line-height: 1.5em;
+    letter-spacing: 0.5px;
+    font-size: 2.6em;
+  }
 }
 
 .intro-photo {
@@ -66,35 +66,38 @@ body {
   width: 55%;
   background: linear-gradient(to right, #ff6b15 0%, #ff5ca3 100%);
   border-radius: 5px;
-}
-.image-holder img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  margin-top: 10px;
-  position: relative;
-  top: 10px;
-  left: 15px;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+    left: 15px;
+  }
 }
 
 .connect {
   padding-top: 15%;
   text-align: center;
-}
-.connect img {
-  width: 25px;
-  margin: 40px;
-  cursor: pointer;
-}
-.connect h1 {
-  margin-bottom: 10px;
-}
-.connect p {
-  margin: 20px 0;
-}
-.connect a {
-  text-decoration: none;
-  outline: none;
+  img {
+    width: 25px;
+    margin: 40px;
+    cursor: pointer;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  a {
+    text-decoration: none;
+    outline: none;
+  }
 }
 
 .story-container {
@@ -108,23 +111,23 @@ body {
   width: 30%;
   background: linear-gradient(to right, #ff6b15 0%, #ff5ca3 100%);
   border-radius: 5px;
-}
-.story-image img {
-  width: 100%;
-  border-radius: 5px;
-  margin-top: 10px;
-  position: relative;
-  top: 10px;
-  left: 15px;
+  img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+    left: 15px;
+  }
 }
 
 .life-story {
   width: 60%;
-}
-.life-story p {
-  margin-top: 20px;
-  font-size: 18px;
-  line-height: 1.8em;
+  p {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.8em;
+  }
 }
 
 .resume {
@@ -132,26 +135,26 @@ body {
   background: linear-gradient(to right, #ff6b15 0%, #ff5ca3 100%);
   display: inline-block;
   padding: 1px;
-}
-.resume a {
-  text-decoration: none;
-  font-size: 18px;
-}
-.resume div {
-  padding: 10px 20px;
-  background-color: white;
+  a {
+    text-decoration: none;
+    font-size: 18px;
+  }
+  div {
+    padding: 10px 20px;
+    background-color: white;
+  }
 }
 
 .illustrations {
   margin-top: 15%;
-}
-.illustrations h2 {
-  text-align: center;
-  text-transform: uppercase;
-}
-.illustrations p {
-  margin-top: 20px;
-  font-size: 18px;
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  p {
+    margin-top: 20px;
+    font-size: 18px;
+  }
 }
 
 .posts-container {
@@ -177,13 +180,13 @@ body {
   display: flex;
   align-items: center;
   padding: 15px 0;
-}
-.response-container button {
-  width: 20px;
-  margin: 0 10px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+  button {
+    width: 20px;
+    margin: 0 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 }
 
 .arrow {
@@ -198,5 +201,3 @@ body {
   display: flex;
   justify-content: center;
 }
-
-/*# sourceMappingURL=index.css.map */

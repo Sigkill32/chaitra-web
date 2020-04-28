@@ -5,7 +5,7 @@ class Designs extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="design">
         <NavBar />
         <h1>Designs</h1>
       </div>

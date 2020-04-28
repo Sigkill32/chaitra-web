@@ -1,23 +1,30 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Toolbar from "@material-ui/core/Toolbar";
-import AppBar from "@material-ui/core/AppBar";
 import NavBar from "./navbar";
-
-const styles = {
-  root: {
-    flex: 1,
-  },
-};
+import { textGradient } from "./../utils";
+import chaitra from "../images/chaitra.png";
+import Connect from "./common/connect";
 
 class Home extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="home">
         <NavBar />
-        <h1>Home</h1>
+        <div className="intro-container">
+          <div className="intro-text">
+            <h1>
+              I’m <span style={textGradient}>Chaitra Mallikarjuna</span>, a
+              product designer and a marketing specialist. I love designing
+              interactions that make marketing products feel effortless.
+            </h1>
+          </div>
+          <div className="intro-photo">
+            <div className="image-holder">
+              <img src={chaitra} alt="Chaitra Mallikarjuna" />
+            </div>
+          </div>
+        </div>
+        <Connect />
       </div>
     );
   }

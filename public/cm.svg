@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="34px" viewBox="0 0 49 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="78.9865103%" y2="140.822278%" id="linearGradient-1">
+            <stop stop-color="#89B5CC" offset="0%"></stop>
+            <stop stop-color="#304653" offset="100%"></stop>
+            <stop stop-color="#304653" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="2.93021707%" y1="0%" x2="97.0697829%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FF6B15" offset="0%"></stop>
+            <stop stop-color="#FF5CA3" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-3" points="0.0100091683 0 15.9836714 16.483515 32.4815777 0 32.4815777 33.46703 0.0100091683 33.46703"></polygon>
+        <linearGradient x1="14.2302431%" y1="18.2015192%" x2="79.7547299%" y2="101.621982%" id="linearGradient-5">
+            <stop stop-color="#B1F1F3" offset="0%"></stop>
+            <stop stop-color="#79DEE4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy" transform="translate(-90.000000, -60.000000)">
+            <g id="Group-5" transform="translate(90.000000, 60.000000)">
+                <g id="Group-Copy">
+                    <path d="M16.0003461,0.0164758821 L16.0003461,33.4835241 C7.09746131,33.0914089 3.55271368e-15,25.7495549 3.55271368e-15,16.75 C3.55271368e-15,7.75044511 7.09746131,0.408591137 16.0003461,0.0164758821 Z" id="Combined-Shape" fill="url(#linearGradient-1)"></path>
+                    <g id="Path-7" transform="translate(15.989991, 0.000000)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Mask" fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                        <polygon fill="url(#linearGradient-5)" mask="url(#mask-4)" points="-2.49078511 14.5456047 18.4241549 35.2235507 -4 34.9235786"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
