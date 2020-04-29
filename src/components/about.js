@@ -100,7 +100,8 @@ class About extends Component {
   };
 
   handleLike = (id) => {
-    const { posts } = this.state;
+    const { posts, page } = this.state;
+    id = id - page * LIMIT;
     posts[id].isLiked = !posts[id].isLiked;
     if (posts[id].isLiked) {
       this.debouncedUpdate(posts[id].likes + 1, id);
