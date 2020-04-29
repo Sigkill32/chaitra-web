@@ -13,17 +13,20 @@ import backDis from "../images/backDis.svg";
 import Spinner from "react-spinkit";
 
 const LIMIT = 3;
-const TOTAL_PAGES = 3;
 
 class About extends Component {
   state = {
     posts: [],
     timer: null,
     page: 0,
+    postsData: [],
+    postCount: 0,
+    totalPages: 0,
   };
 
   componentDidMount() {
     const { posts } = this.state;
+    this.getTotalPosts();
     if (posts.length === 0) {
       this.getData(0);
     }
@@ -32,18 +35,20 @@ class About extends Component {
   getData = async (page) => {
     try {
       let posts = [];
-      let postsData = [];
-      const querySnapshot = await db.collection("posts").get();
-      querySnapshot.forEach((doc) => {
-        postsData.push(doc.data());
-      });
+      let postsData = [...this.state.postsData];
+      if (postsData.length === 0) {
+        postsData = await this.retriveLikes();
+        this.setState({ postsData });
+      }
       const storageRef = storage.ref("Posts/");
       let localLikes = null;
       if (localStorage.getItem("likes")) {
         localLikes = JSON.parse(localStorage.getItem("likes"));
       }
+      const { postCount } = this.state;
       const init = page * LIMIT;
-      const maxLimit = page * LIMIT + LIMIT;
+      const maxLimit =
+        page * LIMIT + LIMIT > postCount ? postCount : page * LIMIT + LIMIT;
       for (let i = init; i < maxLimit; i++) {
         const url = await storageRef.child(`post${i}.png`).getDownloadURL();
         posts.push({
@@ -54,6 +59,30 @@ class About extends Component {
         });
       }
       this.setState({ posts });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  retriveLikes = async () => {
+    let postsData = [];
+    try {
+      const querySnapshot = await db.collection("posts").get();
+      querySnapshot.forEach((doc) => {
+        postsData.push(doc.data());
+      });
+      return postsData;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getTotalPosts = async () => {
+    try {
+      const postRef = await db.collection("totalCounts").doc("posts").get();
+      const postCount = postRef.data().count;
+      const totalPages = Math.ceil(postCount / LIMIT) - 1;
+      this.setState({ postCount, totalPages });
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +127,7 @@ class About extends Component {
   };
 
   render() {
-    const { posts, page } = this.state;
+    const { posts, page, totalPages } = this.state;
     return (
       <div className="about">
         <NavBar />
@@ -143,34 +172,39 @@ class About extends Component {
             everyone understands.
           </p>
           {posts.length !== 0 ? (
-            <div className="posts-container">
-              <button
-                className="arrow"
-                onClick={this.handleBack}
-                disabled={page === 0}
-              >
-                <img src={page === 0 ? backDis : back} alt="back" />
-              </button>
-              {posts.map((post) => (
-                <IllustrationCard
-                  key={post.id}
-                  src={post.post}
-                  id={post.id}
-                  likes={post.likes}
-                  isLiked={post.isLiked}
-                  onHandleLike={this.handleLike}
-                />
-              ))}
-              <button
-                className="arrow"
-                onClick={this.handleForward}
-                disabled={page === TOTAL_PAGES}
-              >
-                <img
-                  src={page === TOTAL_PAGES ? forwardDis : forward}
-                  alt="forward"
-                />
-              </button>
+            <div className="post-holder">
+              <div className="posts-container">
+                <button
+                  className="arrow"
+                  onClick={this.handleBack}
+                  disabled={page === 0}
+                >
+                  <img src={page === 0 ? backDis : back} alt="back" />
+                </button>
+                {posts.map((post) => (
+                  <IllustrationCard
+                    key={post.id}
+                    src={post.post}
+                    id={post.id}
+                    likes={post.likes}
+                    isLiked={post.isLiked}
+                    onHandleLike={this.handleLike}
+                  />
+                ))}
+                <button
+                  className="arrow"
+                  onClick={this.handleForward}
+                  disabled={page === totalPages}
+                >
+                  <img
+                    src={page === totalPages ? forwardDis : forward}
+                    alt="forward"
+                  />
+                </button>
+              </div>
+              <h4>
+                {page + 1}/{totalPages + 1}
+              </h4>
             </div>
           ) : (
             <div className="spinner">
