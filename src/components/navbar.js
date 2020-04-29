@@ -21,7 +21,7 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div>
-          <NavLink activeStyle={textGradient} to="/about">
+          <NavLink activeStyle={textGradient} to="/about" style={{ margin: 0 }}>
             about
           </NavLink>
         </div>

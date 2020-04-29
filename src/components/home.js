@@ -3,6 +3,7 @@ import NavBar from "./navbar";
 import { textGradient } from "./../utils";
 import chaitra from "../images/chaitra.png";
 import Connect from "./common/connect";
+import { NavLink } from "react-router-dom";
 
 class Home extends Component {
   state = {};
@@ -13,8 +14,18 @@ class Home extends Component {
         <div className="intro-container">
           <div className="intro-text">
             <h1>
-              I’m <span style={textGradient}>Chaitra Mallikarjuna</span>, a
-              product designer and a marketing specialist. I love designing
+              I’m{" "}
+              <NavLink
+                to="/about"
+                style={{
+                  textDecoration: "none",
+                  ...textGradient,
+                  outline: "none",
+                }}
+              >
+                Chaitra Mallikarjuna
+              </NavLink>
+              , a product designer and a marketing specialist. I love designing
               interactions that make marketing products feel effortless.
             </h1>
           </div>

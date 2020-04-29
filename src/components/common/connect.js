@@ -3,6 +3,7 @@ import dribbble from "../../images/dribbble.svg";
 import facebook from "../../images/facebook.svg";
 import insta from "../../images/insta.svg";
 import linkedin from "../../images/linkedin.svg";
+import { textGradient } from "./../../utils";
 
 const Connect = () => {
   return (
@@ -13,6 +14,7 @@ const Connect = () => {
         rel="noopener noreferrer"
         target="_blank"
         href="mailto:chaitramallikarjuna@gmail.com"
+        style={{ display: "inline-block", ...textGradient }}
       >
         chaitramallikarjuna@gmail.com
       </a>
