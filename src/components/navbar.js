@@ -6,7 +6,7 @@ import cm from "../images/cm.svg";
 const NavBar = () => {
   return (
     <div className="navbar">
-      <div className="logo">
+      <div className="nav-logo">
         <img src={cm} alt="logo" />
       </div>
       <div className="nav-links">
