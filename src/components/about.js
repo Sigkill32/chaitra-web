@@ -155,7 +155,12 @@ class About extends Component {
             </p>
             <div className="resume">
               <div>
-                <a href="#" style={textGradient}>
+                <a
+                  href="https://firebasestorage.googleapis.com/v0/b/chaitra-web.appspot.com/o/resume.pdf?alt=media&token=39244911-067b-43c4-b084-a5c784d3ef2b"
+                  style={textGradient}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   Resume
                 </a>
               </div>
