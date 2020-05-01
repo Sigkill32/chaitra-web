@@ -54,11 +54,16 @@ class About extends Component {
         posts.push({
           post: url,
           id: i,
-          isLiked: localLikes !== null ? localLikes[i] : false,
+          isLiked:
+            localLikes !== null && localLikes.length - 1 <= i
+              ? localLikes[i]
+              : false,
           likes: postsData[i].likes,
         });
       }
-      this.setState({ posts });
+      const newPosts = [...this.state.posts, ...posts];
+      this.setState({ posts: newPosts });
+      console.log(this.state.posts);
     } catch (error) {
       console.log(error);
     }
@@ -97,11 +102,13 @@ class About extends Component {
 
   updateLikes = (likeCount, id) => {
     db.collection("posts").doc(`post${id}`).set({ likes: likeCount });
+    console.log("updated", id);
   };
 
   handleLike = (id) => {
-    const { posts, page } = this.state;
-    id = id - page * LIMIT;
+    const { posts } = this.state;
+    console.log(id);
+    console.log(posts);
     posts[id].isLiked = !posts[id].isLiked;
     if (posts[id].isLiked) {
       this.debouncedUpdate(posts[id].likes + 1, id);
@@ -117,13 +124,13 @@ class About extends Component {
 
   handleBack = () => {
     const { page } = this.state;
-    this.setState((prevState) => ({ page: prevState.page - 1, posts: [] }));
+    this.setState((prevState) => ({ page: prevState.page - 1 }));
     this.getData(page - 1);
   };
 
   handleForward = () => {
     const { page } = this.state;
-    this.setState((prevState) => ({ page: prevState.page + 1, posts: [] }));
+    this.setState((prevState) => ({ page: prevState.page + 1 }));
     this.getData(page + 1);
   };
 
