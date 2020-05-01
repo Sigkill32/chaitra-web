@@ -1,6 +1,7 @@
 import React from "react";
 import like from "../images/like.svg";
 import liked from "../images/liked.svg";
+import LazyLoad from "react-lazyload";
 
 const ItemCard = ({
   head,
@@ -18,7 +19,9 @@ const ItemCard = ({
         <p>{desc}</p>
         <div className="exp-screens">
           {screens.map((screen, index) => (
-            <img key={index} src={screen} alt="screen" />
+            <LazyLoad>
+              <img key={index} src={screen} alt="screen" />
+            </LazyLoad>
           ))}
         </div>
       </div>

@@ -19,9 +19,18 @@ class Experiments extends Component {
       const experiments = [];
       const expData = await this.getExDetails();
       const expCount = expData.length;
+      let localLikes = null;
+      if (localStorage.getItem("expLikes")) {
+        localLikes = JSON.parse(localStorage.getItem("expLikes"));
+      }
       for (let i = 0; i < expCount; i++) {
         const screens = await this.getExpScreens(i);
-        experiments.push({ ...expData[i], screens, isLiked: false, id: i });
+        experiments.push({
+          ...expData[i],
+          screens,
+          isLiked: localLikes !== null ? localLikes[i] : false,
+          id: i,
+        });
       }
       this.setState({ experiments });
     } catch (error) {
@@ -82,6 +91,8 @@ class Experiments extends Component {
       experiments[id].likes -= 1;
     }
     this.setState({ experiments });
+    const localLikes = experiments.map((experiment) => experiment.isLiked);
+    localStorage.setItem("expLikes", JSON.stringify(localLikes));
   };
 
   render() {
