@@ -66,7 +66,9 @@ class Experiments extends Component {
   };
 
   updateLikes = (likeCount, id) => {
-    db.collection("Experiments").doc(`exp${id}`).set({ likes: likeCount });
+    db.collection("Experiments")
+      .doc(`exp${id}`)
+      .set({ likes: likeCount }, { merge: true });
   };
 
   handleLike = (id) => {
