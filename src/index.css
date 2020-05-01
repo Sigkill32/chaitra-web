@@ -11,7 +11,7 @@ body {
   margin: 100px;
 }
 
-.design {
+.experiments {
   margin: 100px;
 }
 
@@ -206,6 +206,48 @@ body {
   padding: 100px;
   display: flex;
   justify-content: center;
+}
+
+.exp-list {
+  padding-top: 15%;
+}
+
+.item-card-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
+}
+
+.item-card {
+  padding: 20px;
+}
+.item-card h1 {
+  margin-bottom: 20px;
+}
+.item-card p {
+  font-size: 18px;
+}
+
+.exp-screens {
+  padding-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.exp-screens img {
+  width: 20%;
+}
+
+.item-response {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.item-response button {
+  width: 20px;
+  margin: 0 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=index.css.map */

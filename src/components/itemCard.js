@@ -1,9 +1,33 @@
 import React from "react";
+import like from "../images/like.svg";
+import liked from "../images/liked.svg";
 
-const ItemCard = () => {
+const ItemCard = ({
+  head,
+  desc,
+  screens,
+  likes,
+  onHandleLike,
+  isLiked,
+  id,
+}) => {
   return (
-    <div className="item-card">
-      <h1>Card</h1>
+    <div className="item-card-container">
+      <div className="item-card">
+        <h1>{head}</h1>
+        <p>{desc}</p>
+        <div className="exp-screens">
+          {screens.map((screen, index) => (
+            <img key={index} src={screen} alt="screen" />
+          ))}
+        </div>
+      </div>
+      <div className="item-response">
+        <button onClick={() => onHandleLike(id)}>
+          <img className="like-img" src={isLiked ? liked : like} alt="like" />
+        </button>
+        <span style={{ color: "grey" }}>{likes}</span>
+      </div>
     </div>
   );
 };
