@@ -221,7 +221,7 @@ class About extends Component {
             </div>
           ) : (
             <div className="spinner">
-              <Spinner name="double-bounce" />
+              <Spinner name="double-bounce" color="#ff6b15" />
             </div>
           )}
         </div>

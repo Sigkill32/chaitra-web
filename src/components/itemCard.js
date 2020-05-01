@@ -19,8 +19,8 @@ const ItemCard = ({
         <p>{desc}</p>
         <div className="exp-screens">
           {screens.map((screen, index) => (
-            <LazyLoad>
-              <img key={index} src={screen} alt="screen" />
+            <LazyLoad key={index}>
+              <img src={screen} alt="screen" />
             </LazyLoad>
           ))}
         </div>

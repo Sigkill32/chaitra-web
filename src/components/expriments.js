@@ -3,6 +3,7 @@ import NavBar from "./navbar";
 import { db } from "../firebaseConfig";
 import { storage } from "../firebaseConfig";
 import ItemCard from "./itemCard";
+import Spinner from "react-spinkit";
 
 class Experiments extends Component {
   state = {
@@ -101,15 +102,19 @@ class Experiments extends Component {
       <div className="experiments">
         <NavBar />
         <div className="exp-list">
-          {experiments.length !== 0
-            ? experiments.map((experiment, index) => (
-                <ItemCard
-                  {...experiment}
-                  key={index}
-                  onHandleLike={this.handleLike}
-                />
-              ))
-            : "Loading..."}
+          {experiments.length !== 0 ? (
+            experiments.map((experiment, index) => (
+              <ItemCard
+                {...experiment}
+                key={index}
+                onHandleLike={this.handleLike}
+              />
+            ))
+          ) : (
+            <div className="spinner">
+              <Spinner name="ball-triangle-path" color="#ff6b15" />
+            </div>
+          )}
         </div>
       </div>
     );
