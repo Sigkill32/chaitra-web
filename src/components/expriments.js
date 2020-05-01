@@ -7,6 +7,7 @@ import ItemCard from "./itemCard";
 class Experiments extends Component {
   state = {
     experiments: [],
+    timer: null,
   };
 
   componentDidMount() {
@@ -20,10 +21,9 @@ class Experiments extends Component {
       const expCount = expData.length;
       for (let i = 0; i < expCount; i++) {
         const screens = await this.getExpScreens(i);
-        experiments.push({ ...expData[i], screens });
+        experiments.push({ ...expData[i], screens, isLiked: false, id: i });
       }
       this.setState({ experiments });
-      console.log(experiments);
     } catch (error) {
       console.log(error);
     }
@@ -58,6 +58,30 @@ class Experiments extends Component {
     }
   };
 
+  debouncedUpdate = (likeCount, id) => {
+    const { timer } = this.state;
+    clearInterval(timer);
+    const newTimer = setTimeout(this.updateLikes, 500, likeCount, id);
+    this.setState({ timer: newTimer });
+  };
+
+  updateLikes = (likeCount, id) => {
+    db.collection("Experiments").doc(`exp${id}`).set({ likes: likeCount });
+  };
+
+  handleLike = (id) => {
+    const { experiments } = this.state;
+    experiments[id].isLiked = !experiments[id].isLiked;
+    if (experiments[id].isLiked) {
+      this.debouncedUpdate(experiments[id].likes + 1, id);
+      experiments[id].likes += 1;
+    } else {
+      this.debouncedUpdate(experiments[id].likes - 1, id);
+      experiments[id].likes -= 1;
+    }
+    this.setState({ experiments });
+  };
+
   render() {
     const { experiments } = this.state;
     return (
@@ -66,7 +90,11 @@ class Experiments extends Component {
         <div className="exp-list">
           {experiments.length !== 0
             ? experiments.map((experiment, index) => (
-                <ItemCard {...experiment} key={index} />
+                <ItemCard
+                  {...experiment}
+                  key={index}
+                  onHandleLike={this.handleLike}
+                />
               ))
             : "Loading..."}
         </div>
