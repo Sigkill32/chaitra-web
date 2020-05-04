@@ -27,6 +27,7 @@ class About extends Component {
   componentDidMount() {
     const { posts } = this.state;
     this.getTotalPosts();
+    // this.getUrls();
     if (posts.length === 0) {
       this.getData(0);
     }
@@ -132,6 +133,42 @@ class About extends Component {
     const { page } = this.state;
     this.setState((prevState) => ({ page: prevState.page + 1 }));
     this.getData(page + 1);
+  };
+
+  /* 
+    getUrls = async () => {
+    const expScreens = [];
+    const storageRef = storage.ref("design/design1/screens");
+    const url = await storageRef.listAll();
+    const screenCount = url.items.length;
+    for (let i = 0; i < screenCount; i++) {
+      const screen = await url.items[i].getDownloadURL();
+      expScreens.push(screen);
+    }
+    console.log("data recieved");
+    const len = expScreens.length;
+    for (let i = 0; i < len - 1; i++) {
+      for (let j = 0; j < len - 1 - i; j++) {
+        const scj = parseInt(expScreens[j].split("img")[1].split(".png")[0]);
+        const scj1 = parseInt(
+          expScreens[j + 1].split("img")[1].split(".png")[0]
+        );
+        if (scj > scj1) {
+          const temp = expScreens[j];
+          expScreens[j] = expScreens[j + 1];
+          expScreens[j + 1] = temp;
+        } 
+      }
+    }
+    console.log("sorted");
+    db.collection("designs")
+      .doc("design1")
+      .set({ screens: expScreens }, { merge: true });
+    console.log("pushed to db");
+  }; */
+
+  getCurrentPosts = () => {
+    const { page, posts } = this.state;
   };
 
   render() {

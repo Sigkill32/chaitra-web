@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Experiments from "./components/expriments";
 import About from "./components/about";
 import NotFound from "./components/notFound";
+import DesignDetails from "./components/designDetails";
 
 class App extends Component {
   state = {};
@@ -15,6 +16,7 @@ class App extends Component {
             <Route path="/home" component={Home} />
             <Route path="/experiments" component={Experiments} />
             <Route path="/about" component={About} />
+            <Route path="/design" component={DesignDetails} />
             <Route path="/not-found" component={NotFound} />
             <Redirect path="/" exact to="/home" />
             <Redirect to="/not-found" />

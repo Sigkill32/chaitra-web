@@ -3,3 +3,11 @@ export const textGradient = {
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
 };
+
+export const urbanColors = [
+  "#CCF1FF",
+  "#FFCCE2",
+  "#FAFFC4",
+  "#E0D7FF",
+  "#D7EEFf",
+];

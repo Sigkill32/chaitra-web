@@ -142,6 +142,7 @@ body {
   a {
     text-decoration: none;
     font-size: 18px;
+    outline: none;
   }
   div {
     padding: 10px 20px;
@@ -253,5 +254,34 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer;
+  }
+}
+
+.recent-work {
+  display: flex;
+  justify-content: space-between;
+}
+
+.design-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-top: 15%;
+  width: 45%;
+  border-radius: 5px;
+  p {
+    font-size: 18px;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.screen-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    width: 100%;
+    margin-right: 30px;
   }
 }
