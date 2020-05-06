@@ -19,6 +19,10 @@ body {
   margin: 100px;
 }
 
+.design-details {
+  margin: 100px;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -281,7 +285,7 @@ body {
   align-items: center;
   justify-content: space-between;
   img {
-    width: 100%;
+    width: 30%;
     margin-right: 30px;
   }
 }
