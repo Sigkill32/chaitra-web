@@ -21,6 +21,10 @@ body {
 
 .design-details {
   margin: 100px;
+  h1 {
+    margin-bottom: 50px;
+    margin-top: 15%;
+  }
 }
 
 .navbar {
@@ -288,4 +292,72 @@ body {
     width: 30%;
     margin-right: 30px;
   }
+}
+
+.design-container {
+  p {
+    margin: 20px 0;
+    font-size: 18px;
+  }
+  h2 {
+    margin: 10px 0;
+  }
+}
+
+.persona {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+  flex-wrap: wrap;
+  img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 40px;
+  }
+}
+
+.wireframe-img {
+  width: 100%;
+  margin: 50px 0;
+}
+
+.screens {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  img {
+    width: 30%;
+    margin: 40px 0;
+  }
+}
+
+.bullet-points {
+  li {
+    margin-left: 20px;
+  }
+}
+
+.design-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  h1 {
+    margin: 20px 30px;
+  }
+  .back-button {
+    margin: 20px 30px;
+    border-radius: 5px;
+    a {
+      font-weight: bold;
+    }
+  }
+}
+
+.dis-spinner {
+  padding-top: 50%;
 }
