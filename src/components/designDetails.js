@@ -17,6 +17,7 @@ class DesignDetails extends Component {
       const designRef = await db.collection("designs").doc(`design${id}`).get();
       const designData = designRef.data();
       this.setState({ designData });
+      console.log(designData);
     } catch (error) {
       console.log(error);
     }
@@ -24,7 +25,7 @@ class DesignDetails extends Component {
 
   render() {
     const { designData } = this.state;
-    const { head, problem, idea } = designData;
+    const { head, problem, idea, challenges } = designData;
     return (
       <div className="design-details">
         <h1>{head}</h1>
@@ -33,6 +34,8 @@ class DesignDetails extends Component {
           <p>{problem}</p>
           <h2>Idea</h2>
           <p>{idea}</p>
+          <h2>Challenges</h2>
+          {challenges}
         </div>
       </div>
     );
