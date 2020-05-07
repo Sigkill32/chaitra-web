@@ -13,11 +13,13 @@ class DesignDetails extends Component {
   state = {
     designData: {},
     id: null,
+    isLiked: false,
   };
 
   componentDidMount() {
     const params = queryString.parse(this.props.location.search);
-    this.setState({ id: params.id });
+    const isLiked = localStorage.getItem(`design${params.id}`);
+    this.setState({ id: params.id, isLiked });
     this.getDesignData(params.id);
   }
 
@@ -31,10 +33,35 @@ class DesignDetails extends Component {
     }
   };
 
-  handleLikeClick = () => {};
+  debouncedUpdate = (likeCount, id) => {
+    const { timer } = this.state;
+    clearInterval(timer);
+    const newTimer = setTimeout(this.updateLikes, 500, likeCount, id);
+    this.setState({ timer: newTimer });
+  };
+
+  updateLikes = (likeCount, id) => {
+    db.collection("designs")
+      .doc(`design${id}`)
+      .set({ likes: likeCount }, { merge: true });
+  };
+
+  handleLikeClick = () => {
+    const { designData, id, isLiked } = this.state;
+    const newIsLiked = !isLiked;
+    if (newIsLiked) {
+      this.debouncedUpdate(designData.likes + 1, id);
+      designData.likes += 1;
+    } else {
+      this.debouncedUpdate(designData.likes - 1, id);
+      designData.likes -= 1;
+    }
+    this.setState({ designData, isLiked: newIsLiked });
+    localStorage.setItem(`design${id}`, isLiked);
+  };
 
   render() {
-    const { designData, id } = this.state;
+    const { designData, id, isLiked } = this.state;
     const {
       head,
       problem,
@@ -100,7 +127,7 @@ class DesignDetails extends Component {
                 </ul>
                 <h2>Research (2nd phase):User Personas</h2>
                 <p>{research1}</p>
-                {/* <div className="persona">
+                <div className="persona">
                   {personaUrls
                     ? personaUrls.map((persona, index) => (
                         <LazyLoad key={index}>
@@ -108,7 +135,7 @@ class DesignDetails extends Component {
                         </LazyLoad>
                       ))
                     : null}
-                </div> */}
+                </div>
                 <h2>Inforamtion Architecture</h2>
                 <p>{infoArch}</p>
                 <img
@@ -120,7 +147,7 @@ class DesignDetails extends Component {
                 <p>{wireframes0}</p>
                 <h2>Wireframes: High-Fidelity</h2>
                 <p>{wireframes1}</p>
-                {/* <div className="screens">
+                <div className="screens">
                   {screens
                     ? screens.map((screen, index) => (
                         <LazyLoad key={index}>
@@ -128,14 +155,14 @@ class DesignDetails extends Component {
                         </LazyLoad>
                       ))
                     : null}
-                </div> */}
+                </div>
                 <h2>Conclusion</h2>
                 <p>{conclusion}</p>
               </div>
               <div className="details-like">
                 <div className="like-container">
                   <button onClick={this.handleLikeClick}>
-                    <img src={like} alt="like" />
+                    <img src={isLiked ? liked : like} alt="like" />
                   </button>
                 </div>
                 <p>{`${likes} likes`}</p>
