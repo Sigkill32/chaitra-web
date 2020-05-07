@@ -5,6 +5,7 @@ import Spinner from "react-spinkit";
 import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { textGradient } from "./../utils";
+// import Comment from "./comment";
 
 class DesignDetails extends Component {
   state = {
@@ -44,6 +45,8 @@ class DesignDetails extends Component {
       wireframes1,
       screens,
       conclusion,
+      likes,
+      comments,
     } = designData;
     return (
       <>
@@ -123,6 +126,7 @@ class DesignDetails extends Component {
                 <h2>Conclusion</h2>
                 <p>{conclusion}</p>
               </div>
+              {/* <Comment likes={likes} comments={comments} /> */}
             </>
           ) : (
             <div className="spinner des-spinner">

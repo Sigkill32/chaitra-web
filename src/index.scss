@@ -20,7 +20,7 @@ body {
 }
 
 .design-details {
-  margin: 100px;
+  margin: 100px 20%;
   h1 {
     margin-bottom: 50px;
     margin-top: 15%;
@@ -322,12 +322,9 @@ body {
 }
 
 .screens {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
   img {
-    width: 30%;
-    margin: 40px 0;
+    width: 27%;
+    margin: 20px;
   }
 }
 
