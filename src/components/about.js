@@ -56,10 +56,7 @@ class About extends Component {
         posts.push({
           post: url,
           id: i,
-          isLiked:
-            localLikes !== null && localLikes.length - 1 <= i
-              ? localLikes[i]
-              : false,
+          isLiked: localLikes !== null && localLikes[i] ? localLikes[i] : false,
           likes: postsData[i].likes,
         });
       }
@@ -102,14 +99,18 @@ class About extends Component {
   };
 
   updateLikes = (likeCount, id) => {
-    db.collection("posts").doc(`post${id}`).set({ likes: likeCount });
-    console.log("updated", id);
+    try {
+      db.collection("posts").doc(`post${id}`).set({ likes: likeCount });
+      // console.log("updated", id, "count", likeCount);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleLike = (id) => {
     const { posts } = this.state;
-    console.log(id);
-    console.log(posts);
+    // console.log(id);
+    // console.log(posts);
     posts[id].isLiked = !posts[id].isLiked;
     if (posts[id].isLiked) {
       this.debouncedUpdate(posts[id].likes + 1, id);
