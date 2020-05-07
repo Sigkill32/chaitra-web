@@ -21,10 +21,26 @@ class Comment extends Component {
   };
 
   handleSubmit = () => {
-    const { name, comment, email, comments } = this.state;
-    const newCommnets = [...comments, { name, comment, email, reply: "" }];
-    this.pushComment(newCommnets);
-    this.setState({ comments: newCommnets, name: "", comment: "", email: "" });
+    const { id } = this.props;
+    const hasCommented = localStorage.getItem(`hasCommented${id}`);
+    if (!hasCommented) {
+      const { name, comment, email, comments } = this.state;
+      if ((name === "" || comment === "", email === "")) {
+        alert("One or more field are empty");
+        return false;
+      }
+      const newCommnets = [...comments, { name, comment, email, reply: "" }];
+      this.pushComment(newCommnets);
+      this.setState({
+        comments: newCommnets,
+        name: "",
+        comment: "",
+        email: "",
+      });
+      localStorage.setItem(`hasCommented${id}`, true);
+    } else {
+      alert("You have already posted a comment");
+    }
   };
 
   pushComment = (comments) => {
