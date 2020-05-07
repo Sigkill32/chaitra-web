@@ -348,4 +348,114 @@ body {
   padding-top: 50%;
 }
 
+.details-like {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 30px;
+}
+.details-like p {
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.like-container {
+  border: 1px solid #efefef;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+}
+.like-container button {
+  width: 30px;
+  margin-top: 2px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.comment-form input {
+  padding: 15px 5px;
+  box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 3px;
+}
+.comment-form button {
+  padding: 10px 50px;
+  border-radius: 3px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+  color: grey;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.comment-form button:hover {
+  background-color: grey;
+  color: white;
+}
+
+.comment-input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.name-email {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.name-email input {
+  width: 48%;
+}
+
+.comment-container {
+  margin-bottom: 60px;
+}
+
+.prof-name {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  border: solid;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #e54065;
+  border: 1px solid #e54065;
+  width: 40px;
+  height: 50px;
+  text-align: center;
+  margin-right: 20px;
+}
+.profile-pic h2 {
+  padding: 10px;
+  color: white;
+}
+
+.comment-text {
+  margin-left: 65px;
+  font-size: 18px;
+}
+
+.reply {
+  margin-left: 65px;
+  margin-top: 20px;
+}
+
+.reply-chaitra {
+  width: 40px;
+  margin-right: 20px;
+}
+
 /*# sourceMappingURL=index.css.map */

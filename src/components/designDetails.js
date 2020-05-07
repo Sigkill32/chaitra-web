@@ -5,15 +5,19 @@ import Spinner from "react-spinkit";
 import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { textGradient } from "./../utils";
-// import Comment from "./comment";
+import like from "../images/like.svg";
+import liked from "../images/liked.svg";
+import Comment from "./comment";
 
 class DesignDetails extends Component {
   state = {
     designData: {},
+    id: null,
   };
 
   componentDidMount() {
     const params = queryString.parse(this.props.location.search);
+    this.setState({ id: params.id });
     this.getDesignData(params.id);
   }
 
@@ -27,8 +31,10 @@ class DesignDetails extends Component {
     }
   };
 
+  handleLikeClick = () => {};
+
   render() {
-    const { designData } = this.state;
+    const { designData, id } = this.state;
     const {
       head,
       problem,
@@ -94,7 +100,7 @@ class DesignDetails extends Component {
                 </ul>
                 <h2>Research (2nd phase):User Personas</h2>
                 <p>{research1}</p>
-                <div className="persona">
+                {/* <div className="persona">
                   {personaUrls
                     ? personaUrls.map((persona, index) => (
                         <LazyLoad key={index}>
@@ -102,7 +108,7 @@ class DesignDetails extends Component {
                         </LazyLoad>
                       ))
                     : null}
-                </div>
+                </div> */}
                 <h2>Inforamtion Architecture</h2>
                 <p>{infoArch}</p>
                 <img
@@ -114,7 +120,7 @@ class DesignDetails extends Component {
                 <p>{wireframes0}</p>
                 <h2>Wireframes: High-Fidelity</h2>
                 <p>{wireframes1}</p>
-                <div className="screens">
+                {/* <div className="screens">
                   {screens
                     ? screens.map((screen, index) => (
                         <LazyLoad key={index}>
@@ -122,11 +128,19 @@ class DesignDetails extends Component {
                         </LazyLoad>
                       ))
                     : null}
-                </div>
+                </div> */}
                 <h2>Conclusion</h2>
                 <p>{conclusion}</p>
               </div>
-              {/* <Comment likes={likes} comments={comments} /> */}
+              <div className="details-like">
+                <div className="like-container">
+                  <button onClick={this.handleLikeClick}>
+                    <img src={like} alt="like" />
+                  </button>
+                </div>
+                <p>{`${likes} likes`}</p>
+              </div>
+              <Comment id={id} comments={comments} />
             </>
           ) : (
             <div className="spinner des-spinner">
