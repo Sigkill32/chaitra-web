@@ -22,6 +22,7 @@ class About extends Component {
     postsData: [],
     postCount: 0,
     totalPages: 0,
+    currentPosts: [],
   };
 
   componentDidMount() {
@@ -63,8 +64,7 @@ class About extends Component {
         });
       }
       const newPosts = [...this.state.posts, ...posts];
-      this.setState({ posts: newPosts });
-      console.log(this.state.posts);
+      this.setState({ posts: newPosts, currentPosts: posts });
     } catch (error) {
       console.log(error);
     }
@@ -125,13 +125,19 @@ class About extends Component {
 
   handleBack = () => {
     const { page } = this.state;
-    this.setState((prevState) => ({ page: prevState.page - 1 }));
+    this.setState((prevState) => ({
+      page: prevState.page - 1,
+      currentPosts: [],
+    }));
     this.getData(page - 1);
   };
 
   handleForward = () => {
     const { page } = this.state;
-    this.setState((prevState) => ({ page: prevState.page + 1 }));
+    this.setState((prevState) => ({
+      page: prevState.page + 1,
+      currentPosts: [],
+    }));
     this.getData(page + 1);
   };
 
@@ -167,12 +173,8 @@ class About extends Component {
     console.log("pushed to db");
   }; */
 
-  getCurrentPosts = () => {
-    const { page, posts } = this.state;
-  };
-
   render() {
-    const { posts, page, totalPages } = this.state;
+    const { page, totalPages, currentPosts } = this.state;
     return (
       <div className="about">
         <NavBar />
@@ -221,7 +223,7 @@ class About extends Component {
             illustrations. I draw and make art to communicate ideas in a way
             everyone understands.
           </p>
-          {posts.length !== 0 ? (
+          {currentPosts.length !== 0 ? (
             <div className="post-holder">
               <div className="posts-container">
                 <button
@@ -231,7 +233,7 @@ class About extends Component {
                 >
                   <img src={page === 0 ? backDis : back} alt="back" />
                 </button>
-                {posts.map((post) => (
+                {currentPosts.map((post) => (
                   <IllustrationCard
                     key={post.id}
                     src={post.post}
