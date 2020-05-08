@@ -56,6 +56,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   padding-top: 15%;
 }
 
@@ -263,6 +264,7 @@ body {
 .recent-work {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .design-card {
@@ -456,6 +458,46 @@ body {
 .reply-chaitra {
   width: 40px;
   margin-right: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .home {
+    margin: 10px;
+  }
+
+  .experiments {
+    margin: 10px;
+  }
+
+  .about {
+    margin: 10px;
+  }
+
+  .design-details {
+    margin: 10px 20%;
+  }
+  .design-details h1 {
+    margin-bottom: 50px;
+    margin-top: 15%;
+  }
+
+  .intro-text {
+    width: 100%;
+  }
+
+  .intro-photo {
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .design-card {
+    width: 98%;
+  }
+
+  .connect img {
+    margin: 20px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
