@@ -203,7 +203,7 @@ class About extends Component {
             <div className="resume">
               <div>
                 <a
-                  href="https://firebasestorage.googleapis.com/v0/b/chaitra-web.appspot.com/o/resume.pdf?alt=media&token=39244911-067b-43c4-b084-a5c784d3ef2b"
+                  href="https://firebasestorage.googleapis.com/v0/b/chaitra-web.appspot.com/o/resume.pdf?alt=media&token=c791f3c7-5d99-4c06-9c9b-0e33faa9c051"
                   style={textGradient}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -260,10 +260,10 @@ class About extends Component {
               </h4>
             </div>
           ) : (
-            <div className="spinner">
-              <Spinner name="double-bounce" color="#ff6b15" />
-            </div>
-          )}
+              <div className="spinner">
+                <Spinner name="double-bounce" color="#ff6b15" />
+              </div>
+            )}
         </div>
         <Connect />
       </div>
