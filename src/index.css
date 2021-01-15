@@ -469,6 +469,23 @@ body {
   display: none;
 }
 
+.large-card {
+  margin-top: 20px;
+}
+.large-card img {
+  width: 50%;
+  border-radius: 5px;
+}
+.large-card a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #0747a6;
+}
+.large-card a span {
+  color: #000;
+}
+
 @media only screen and (max-width: 1000px) {
   .home {
     margin: 10px;

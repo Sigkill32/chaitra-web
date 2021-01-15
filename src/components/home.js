@@ -51,6 +51,15 @@ class Home extends Component {
             path="1"
             width={"45%"}
           />
+          <DesignCard
+            head="Your personalised search engine"
+            desc="Save your small yet important piceces of imformation in a template that is easy to organise, retrieve and share! blobs is your redefined next-gen bookmarking tool"
+            path="2"
+            src="https://firebasestorage.googleapis.com/v0/b/chaitra-web.appspot.com/o/design%2Fdesign2%2Fscreens%2Fimg0.svg?alt=media&token=301e17ce-d5d8-4715-8dce-6ac9f51fcf9b"
+            width={"100%"}
+            classes={"large-card"}
+            link={{ href: "https://blobs.co/", name: "Blobs.co" }}
+          />
         </div>
         <Connect />
       </div>
