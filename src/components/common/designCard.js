@@ -36,7 +36,7 @@ const DesignCard = ({
               </div>
             ) : (
               <div>
-                <Link style={textGradient} to={`/designs/${appName}}`}>
+                <Link style={textGradient} to={`/${appName}`}>
                   View Designs
                 </Link>
               </div>
