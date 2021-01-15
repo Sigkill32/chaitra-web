@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { textGradient } from "./../../utils";
 
-const DesignCard = ({ head, desc, path, src }) => {
+const DesignCard = ({ head, desc, path, src, width }) => {
   return (
-    <div className="design-card">
+    <div className="design-card" style={{ width }}>
       <div className="screen-text">
         <img src={src} alt="Screen" />
         <div>
