@@ -1,6 +1,7 @@
 import React from "react";
+import ImageSlider from "../common/imageSlider";
 
-imgs = [
+const imgs = [
   "https://firebasestorage.googleapis.com/v0/b/chaitra-web.appspot.com/o/design%2Fdesign2%2Fscreens%2Fimg0.svg?alt=media&token=301e17ce-d5d8-4715-8dce-6ac9f51fcf9b",
   "https://firebasestorage.googleapis.com/v0/b/chaitra-web.appspot.com/o/design%2Fdesign2%2Fscreens%2Fimg1.svg?alt=media&token=d4d37b9e-96c4-4100-b729-c0cc38495de4",
   "https://firebasestorage.googleapis.com/v0/b/chaitra-web.appspot.com/o/design%2Fdesign2%2Fscreens%2Fimg2.svg?alt=media&token=228fdae7-b257-4d0a-8fac-3a468c2897e0",
@@ -14,6 +15,7 @@ const Blobs = () => {
   return (
     <div className="blobs-app-container">
       <h1>Blobs</h1>
+      <ImageSlider imgs={imgs} />
     </div>
   );
 };
