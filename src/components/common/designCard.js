@@ -2,7 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { textGradient } from "./../../utils";
 
-const DesignCard = ({ head, desc, path, src, width, classes, link }) => {
+const DesignCard = ({
+  head,
+  desc,
+  path,
+  src,
+  width,
+  classes,
+  link,
+  appName,
+}) => {
   return (
     <div
       className={classes ? "design-card " + classes : "design-card"}
@@ -19,11 +28,19 @@ const DesignCard = ({ head, desc, path, src, width, classes, link }) => {
             </a>
           )}
           <div className="resume card-link">
-            <div>
-              <Link style={textGradient} to={`/design/?id=${path}`}>
-                View Case Study
-              </Link>
-            </div>
+            {path ? (
+              <div>
+                <Link style={textGradient} to={`/design/?id=${path}`}>
+                  View Case Study
+                </Link>
+              </div>
+            ) : (
+              <div>
+                <Link style={textGradient} to={`/designs/${appName}}`}>
+                  View Designs
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
