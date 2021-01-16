@@ -488,6 +488,28 @@ body {
   color: #000;
 }
 
+.slider-container .current-image {
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+  overflow: auto;
+}
+.slider-container .current-image img {
+  max-width: 80vw;
+}
+.slider-container .slider-buttons {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-container .slider-buttons button {
+  outline: none;
+}
+.slider-container .slider-buttons img {
+  width: 20px;
+}
+
 @media only screen and (max-width: 1000px) {
   .home {
     margin: 10px;
