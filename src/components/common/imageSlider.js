@@ -37,6 +37,7 @@ class ImageSlider extends Component {
           <img
             style={this.state.loaded ? {} : { display: "none" }}
             src={imgs[imgIndex]}
+            alt="current design"
             onLoad={() => this.setState({ loaded: true })}
           />
         </div>
