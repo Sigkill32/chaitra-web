@@ -272,6 +272,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin-top: 15%;
+  width: 45%;
   border-radius: 5px;
 }
 .design-card p {
@@ -471,6 +472,7 @@ body {
 
 .large-card {
   margin-top: 20px;
+  width: 100%;
 }
 .large-card img {
   width: 50%;
@@ -557,6 +559,14 @@ body {
 
   .design-card {
     width: 98%;
+  }
+
+  .large-card .screen-text {
+    display: block;
+  }
+  .large-card .screen-text img {
+    margin-bottom: 10px;
+    width: 100%;
   }
 
   .connect img {

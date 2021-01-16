@@ -277,6 +277,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin-top: 15%;
+  width: 45%;
   border-radius: 5px;
   p {
     font-size: 18px;
@@ -484,6 +485,7 @@ body {
 
 .large-card {
   margin-top: 20px;
+  width: 100%;
   img {
     width: 50%;
     border-radius: 5px;
@@ -572,6 +574,16 @@ body {
 
   .design-card {
     width: 98%;
+  }
+
+  .large-card {
+    .screen-text {
+      display: block;
+      img {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+    }
   }
 
   .connect {

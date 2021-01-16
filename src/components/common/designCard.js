@@ -13,10 +13,7 @@ const DesignCard = ({
   appName,
 }) => {
   return (
-    <div
-      className={classes ? "design-card " + classes : "design-card"}
-      style={{ width }}
-    >
+    <div className={classes ? "design-card " + classes : "design-card"}>
       <div className="screen-text">
         <img src={src} alt="Screen" />
         <div>
