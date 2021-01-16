@@ -525,6 +525,17 @@ body {
   }
 }
 
+.blobs-app-container {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .home {
     margin: 10px;
