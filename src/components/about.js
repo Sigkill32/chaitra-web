@@ -214,7 +214,7 @@ class About extends Component {
             </div>
           </div>
           <div className="story-image">
-            <img src={artStare} alt="Me amaized by vibrant colours" />
+            <img src={artStare} alt="Me amazed by vibrant colours" />
           </div>
         </div>
         <div className="illustrations">
@@ -260,10 +260,10 @@ class About extends Component {
               </h4>
             </div>
           ) : (
-              <div className="spinner">
-                <Spinner name="double-bounce" color="#ff6b15" />
-              </div>
-            )}
+            <div className="spinner">
+              <Spinner name="double-bounce" color="#ff6b15" />
+            </div>
+          )}
         </div>
         <Connect />
       </div>
