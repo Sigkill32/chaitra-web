@@ -136,7 +136,7 @@ class DesignDetails extends Component {
                       ))
                     : null}
                 </div>
-                <h2>Inforamtion Architecture</h2>
+                <h2>Information Architecture</h2>
                 <p>{infoArch}</p>
                 <img
                   src={wireframeUrl}
